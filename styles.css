@@ -24,9 +24,9 @@ html, body {
   --color-text: #2c2b2b;
   --color-muted: #7a7a7a;
   --color-border: #e6e0d2;
-  --color-new: #9aa5b1;
-  --color-progress: #4A90D9;
-  --color-done: #f5a623;
+  --color-new: #5f6b78;
+  --color-progress: #2f6fb0;
+  --color-done: #a85c00;
   --color-danger: #d9534f;
   --radius: 16px;
 }
