@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- sky -->
+  <rect x="0" y="0" width="512" height="512" fill="#CDEBFB"/>
+  <!-- rainbow bands (outer to inner) -->
+  <path d="M40,460 A216,216 0 0 1 472,460" fill="none" stroke="#E63946" stroke-width="34"/>
+  <path d="M74,460 A182,182 0 0 1 438,460" fill="none" stroke="#F5A623" stroke-width="34"/>
+  <path d="M108,460 A148,148 0 0 1 404,460" fill="none" stroke="#F4E04D" stroke-width="34"/>
+  <path d="M142,460 A114,114 0 0 1 370,460" fill="none" stroke="#4CAF50" stroke-width="34"/>
+  <path d="M176,460 A80,80 0 0 1 336,460" fill="none" stroke="#4A90D9" stroke-width="34"/>
+  <path d="M210,460 A46,46 0 0 1 302,460" fill="none" stroke="#9B59B6" stroke-width="34"/>
+  <!-- left cloud -->
+  <g stroke="#2B2B2B" stroke-width="7">
+    <circle cx="70" cy="440" r="42" fill="#FFFFFF"/>
+    <circle cx="115" cy="425" r="52" fill="#FFFFFF"/>
+    <circle cx="165" cy="445" r="40" fill="#FFFFFF"/>
+    <rect x="55" y="440" width="140" height="40" fill="#FFFFFF" stroke="none"/>
+  </g>
+  <!-- right cloud -->
+  <g stroke="#2B2B2B" stroke-width="7">
+    <circle cx="350" cy="440" r="40" fill="#FFFFFF"/>
+    <circle cx="397" cy="422" r="54" fill="#FFFFFF"/>
+    <circle cx="450" cy="440" r="42" fill="#FFFFFF"/>
+    <rect x="335" y="440" width="150" height="42" fill="#FFFFFF" stroke="none"/>
+  </g>
+  <!-- sun -->
+  <circle cx="256" cy="120" r="50" fill="#F4E04D" stroke="#2B2B2B" stroke-width="6"/>
+  <path d="M256,45 L256,20 M256,220 L256,195 M181,120 L156,120 M356,120 L331,120
+           M203,67 L186,50 M309,67 L326,50 M203,173 L186,190 M309,173 L326,190"
+        stroke="#F4E04D" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- tail -->
+  <path d="M300,400 C365,395 400,330 380,265 C368,222 320,225 322,262 C324,295 355,300 350,340 C346,368 320,382 295,378 Z"
+        fill="#F0A868"/>
+  <!-- body -->
+  <ellipse cx="200" cy="345" rx="112" ry="122" fill="#F0A868"/>
+  <!-- chest patch -->
+  <ellipse cx="200" cy="392" rx="56" ry="76" fill="#FDF0DC"/>
+  <!-- head -->
+  <circle cx="200" cy="188" r="96" fill="#F0A868"/>
+  <!-- ears -->
+  <polygon points="118,142 148,48 186,132" fill="#F0A868"/>
+  <polygon points="282,142 252,48 214,132" fill="#F0A868"/>
+  <polygon points="138,120 152,78 168,112" fill="#FFC2D6"/>
+  <polygon points="262,120 248,78 232,112" fill="#FFC2D6"/>
+  <!-- eyes -->
+  <ellipse cx="122" cy="182" rx="28" ry="34" fill="#2B2B2B"/>
+  <ellipse cx="278" cy="182" rx="28" ry="34" fill="#2B2B2B"/>
+  <!-- nose -->
+  <polygon points="200,250 174,286 226,286" fill="#E8607D"/>
+  <!-- yarn ball -->
+  <circle cx="398" cy="392" r="80" fill="#9B59B6"/>
+  <path d="M322,392 Q398,332 474,392" fill="none" stroke="#6E3583" stroke-width="20"/>
+  <path d="M322,414 Q398,468 474,414" fill="none" stroke="#6E3583" stroke-width="20"/>
+</svg>

@@ -1,0 +1,466 @@
+/* PixelKleur — app shell styles. See CLAUDE.md §4-5 for the mobile
+   hygiene rules and canvas layout the puzzle screen will need. */
+
+/* Required mobile hygiene (CLAUDE.md §4) */
+html, body {
+  overscroll-behavior: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+.grid, .palette {
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+:root {
+  --color-bg: #fdfaf3;
+  --color-surface: #ffffff;
+  --color-primary: #4A90D9;
+  --color-primary-dark: #3a75b3;
+  --color-text: #2c2b2b;
+  --color-muted: #7a7a7a;
+  --color-border: #e6e0d2;
+  --color-new: #9aa5b1;
+  --color-progress: #4A90D9;
+  --color-done: #f5a623;
+  --color-danger: #d9534f;
+  --radius: 16px;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+button {
+  font-family: inherit;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Library screen */
+.library-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+#library-title {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 40px);
+  color: var(--color-primary-dark);
+  cursor: default;
+}
+
+.library-status {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--color-muted);
+  font-size: 18px;
+}
+
+.library-status p {
+  margin: 0 0 16px;
+}
+
+.retry-button {
+  min-height: 48px;
+  padding: 0 24px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px 16px 32px;
+}
+
+.library-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  min-height: 56px;
+}
+
+.library-tile-thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.library-tile-thumb img,
+.library-tile-thumb canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.library-tile-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  background: var(--color-new);
+}
+
+.library-tile-badge.badge-in-progress {
+  background: var(--color-progress);
+}
+
+.library-tile-badge.badge-done {
+  background: var(--color-done);
+}
+
+.library-tile-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Puzzle screen */
+/* :not([hidden]) matters here — an unscoped `display` would out-rank the
+   browser's default `[hidden] { display: none }` (author beats user-agent
+   regardless of specificity), so toggling .hidden wouldn't actually hide it. */
+#screen-puzzle:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.puzzle-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  flex: 0 0 auto;
+}
+
+.puzzle-header-title {
+  margin: 0;
+  font-size: 20px;
+  color: var(--color-primary-dark);
+}
+
+.back-button {
+  min-height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 16px;
+  flex: 0 0 auto;
+}
+
+.fit-button {
+  min-height: 48px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.mute-button {
+  min-width: 48px;
+  min-height: 48px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 20px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.progress-indicator {
+  min-width: 64px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+
+.color-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  min-height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.color-indicator-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  flex: 0 0 auto;
+}
+
+.puzzle-canvas-container {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  touch-action: none;
+}
+
+.puzzle-canvas {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+
+/* Palette bar (§5, §10B) — pinned to the bottom, horizontally scrollable. */
+.palette {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  flex: 0 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.palette-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  min-width: 56px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.palette-swatch-color {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--swatch-color);
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.palette-swatch-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.palette-swatch-check {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+}
+
+.palette-swatch-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.palette-swatch.selected {
+  background: var(--color-border);
+}
+
+.palette-swatch.selected .palette-swatch-color {
+  border-color: var(--color-primary);
+}
+
+.palette-swatch.completed {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.palette-swatch.completed .palette-swatch-check {
+  display: flex;
+}
+
+.palette-swatch.completed .palette-swatch-number {
+  visibility: hidden;
+}
+
+/* Completion screen (§10C) */
+#screen-complete:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 16px;
+}
+
+.complete-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 560px;
+  width: 100%;
+}
+
+.complete-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, 5vw, 34px);
+  color: var(--color-primary-dark);
+}
+
+.complete-image-wrap {
+  position: relative;
+  width: min(90vw, 480px);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.complete-image,
+.complete-confetti {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.complete-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.complete-button {
+  min-height: 56px;
+  padding: 0 24px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.complete-button-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Confirm dialog */
+.dialog {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  z-index: 10;
+}
+
+.dialog[hidden] {
+  display: none;
+}
+
+.dialog-box {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+.dialog-box p {
+  margin: 0 0 20px;
+  font-size: 18px;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.dialog-button {
+  flex: 1;
+  min-height: 48px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.dialog-button-danger {
+  background: var(--color-danger);
+  color: white;
+}

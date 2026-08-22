@@ -1,0 +1,13 @@
+[
+  { "n": 1, "hex": "#1A1A1A", "name": "zwart" },
+  { "n": 2, "hex": "#FFFFFF", "name": "wit" },
+  { "n": 3, "hex": "#F5D547", "name": "geel" },
+  { "n": 4, "hex": "#F2A3C4", "name": "roze" },
+  { "n": 5, "hex": "#E8534A", "name": "rood" },
+  { "n": 6, "hex": "#B48CE0", "name": "paars" },
+  { "n": 7, "hex": "#6BB8E8", "name": "lichtblauw" },
+  { "n": 8, "hex": "#7CC576", "name": "groen" },
+  { "n": 9, "hex": "#4E8F49", "name": "donkergroen" },
+  { "n": 10, "hex": "#B5713F", "name": "bruin" },
+  { "n": 11, "hex": "#8A5230", "name": "donkerbruin" }
+]

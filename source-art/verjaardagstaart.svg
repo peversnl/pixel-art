@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- balloons -->
+  <circle cx="110" cy="120" r="46" fill="#E63946"/>
+  <path d="M110,166 C100,220 130,260 150,300" fill="none"/>
+  <circle cx="256" cy="90" r="50" fill="#4A90D9"/>
+  <path d="M256,140 C246,200 270,250 256,300" fill="none"/>
+  <circle cx="402" cy="120" r="46" fill="#F4E04D"/>
+  <path d="M402,166 C412,220 382,260 362,300" fill="none"/>
+
+  <!-- plate -->
+  <ellipse cx="256" cy="470" rx="180" ry="24" fill="#D3D3D3"/>
+
+  <!-- bottom tier -->
+  <rect x="106" y="380" width="300" height="90" rx="10" fill="#FFC2D6"/>
+  <!-- top tier -->
+  <rect x="156" y="300" width="200" height="86" rx="10" fill="#FFF8F0"/>
+  <!-- frosting drips -->
+  <path d="M106,380 Q126,400 146,380 T186,380 T226,380 T266,380 T306,380 T346,380 T406,380 L406,340 L106,340 Z"
+        fill="#FFFFFF"/>
+  <path d="M156,300 Q172,316 188,300 T220,300 T252,300 T284,300 T316,300 T356,300 L356,270 L156,270 Z"
+        fill="#FFFFFF"/>
+
+  <!-- candles -->
+  <rect x="216" y="230" width="14" height="46" fill="#4CAF50"/>
+  <rect x="249" y="220" width="14" height="56" fill="#F5A623"/>
+  <rect x="282" y="230" width="14" height="46" fill="#9B59B6"/>
+  <!-- flames -->
+  <ellipse cx="223" cy="218" rx="9" ry="15" fill="#F4E04D"/>
+  <ellipse cx="256" cy="208" rx="9" ry="15" fill="#F4E04D"/>
+  <ellipse cx="289" cy="218" rx="9" ry="15" fill="#F4E04D"/>
+</svg>

@@ -1,0 +1,50 @@
+// Dutch color-name lookup table for the puzzle generator (CLAUDE.md §9
+// step 6). Each generated palette entry gets the nearest name by ΔE in
+// Lab space. Hand-edit puzzles/<id>.json afterwards if a name is off —
+// nearest-match is a starting point, not gospel.
+
+const NAMED_COLORS = [
+  { name: 'zwart', hex: '#000000' },
+  { name: 'wit', hex: '#FFFFFF' },
+  { name: 'grijs', hex: '#808080' },
+  { name: 'lichtgrijs', hex: '#D3D3D3' },
+  { name: 'donkergrijs', hex: '#404040' },
+  { name: 'rood', hex: '#E63946' },
+  { name: 'donkerrood', hex: '#8B0000' },
+  { name: 'roze', hex: '#FF8FAB' },
+  { name: 'lichtroze', hex: '#FFC2D6' },
+  { name: 'fuchsia', hex: '#D6249F' },
+  { name: 'oranje', hex: '#F5A623' },
+  { name: 'lichtoranje', hex: '#FFC98B' },
+  { name: 'bruin', hex: '#8B5E34' },
+  { name: 'lichtbruin', hex: '#C68B59' },
+  { name: 'donkerbruin', hex: '#4A2F1B' },
+  { name: 'beige', hex: '#E8D9B5' },
+  { name: 'geel', hex: '#F4E04D' },
+  { name: 'lichtgeel', hex: '#FDF3A0' },
+  { name: 'goud', hex: '#D4AF37' },
+  { name: 'groen', hex: '#4CAF50' },
+  { name: 'lichtgroen', hex: '#A5D6A7' },
+  { name: 'donkergroen', hex: '#1B5E20' },
+  { name: 'limoengroen', hex: '#B4D430' },
+  { name: 'mintgroen', hex: '#98E8C1' },
+  { name: 'olijfgroen', hex: '#808000' },
+  { name: 'turkoois', hex: '#40E0D0' },
+  { name: 'cyaan', hex: '#00BCD4' },
+  { name: 'blauw', hex: '#4A90D9' },
+  { name: 'lichtblauw', hex: '#A8D8F0' },
+  { name: 'donkerblauw', hex: '#1B3A6B' },
+  { name: 'marineblauw', hex: '#1A2456' },
+  { name: 'hemelsblauw', hex: '#87CEEB' },
+  { name: 'paars', hex: '#9B59B6' },
+  { name: 'lichtpaars', hex: '#D8BFD8' },
+  { name: 'donkerpaars', hex: '#4B0082' },
+  { name: 'lavendel', hex: '#B497D6' },
+  { name: 'magenta', hex: '#E91E8C' },
+  { name: 'koraal', hex: '#FF7F6B' },
+  { name: 'zalmroze', hex: '#FA8072' },
+  { name: 'zilver', hex: '#C0C0C0' },
+  { name: 'huidskleur', hex: '#F2C9A1' },
+];
+
+module.exports = { NAMED_COLORS };

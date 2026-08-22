@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- stems -->
+  <path d="M256,340 C250,390 246,440 250,480" fill="none" stroke="#4CAF50" stroke-width="18"/>
+  <path d="M195,330 C210,380 225,430 240,480" fill="none" stroke="#4CAF50" stroke-width="18"/>
+  <path d="M317,330 C300,380 285,430 270,480" fill="none" stroke="#4CAF50" stroke-width="18"/>
+  <path d="M160,300 C190,340 220,380 236,420" fill="none" stroke="#4CAF50" stroke-width="16"/>
+  <path d="M352,300 C322,340 292,380 276,420" fill="none" stroke="#4CAF50" stroke-width="16"/>
+  <!-- leaves -->
+  <ellipse cx="215" cy="400" rx="26" ry="14" fill="#4CAF50" transform="rotate(30 215 400)"/>
+  <ellipse cx="297" cy="400" rx="26" ry="14" fill="#4CAF50" transform="rotate(-30 297 400)"/>
+  <!-- ribbon -->
+  <path d="M210,450 L302,450 L286,500 L226,500 Z" fill="#E63946"/>
+  <path d="M210,450 C190,435 190,410 210,415 L235,450 Z" fill="#E63946"/>
+  <path d="M302,450 C322,435 322,410 302,415 L277,450 Z" fill="#E63946"/>
+
+  <!-- flower: pink (left) -->
+  <g>
+    <circle cx="160" cy="230" r="30" fill="#FF8FAB"/>
+    <circle cx="122" cy="250" r="30" fill="#FF8FAB"/>
+    <circle cx="198" cy="250" r="30" fill="#FF8FAB"/>
+    <circle cx="140" cy="278" r="30" fill="#FF8FAB"/>
+    <circle cx="180" cy="278" r="30" fill="#FF8FAB"/>
+    <circle cx="160" cy="256" r="24" fill="#F4E04D"/>
+  </g>
+
+  <!-- flower: purple (right) -->
+  <g>
+    <circle cx="352" cy="230" r="30" fill="#9B59B6"/>
+    <circle cx="314" cy="250" r="30" fill="#9B59B6"/>
+    <circle cx="390" cy="250" r="30" fill="#9B59B6"/>
+    <circle cx="332" cy="278" r="30" fill="#9B59B6"/>
+    <circle cx="372" cy="278" r="30" fill="#9B59B6"/>
+    <circle cx="352" cy="256" r="24" fill="#F4E04D"/>
+  </g>
+
+  <!-- flower: red (center, tallest) -->
+  <g>
+    <circle cx="256" cy="170" r="32" fill="#E63946"/>
+    <circle cx="216" cy="192" r="32" fill="#E63946"/>
+    <circle cx="296" cy="192" r="32" fill="#E63946"/>
+    <circle cx="234" cy="222" r="32" fill="#E63946"/>
+    <circle cx="278" cy="222" r="32" fill="#E63946"/>
+    <circle cx="256" cy="198" r="26" fill="#F4E04D"/>
+  </g>
+
+  <!-- flower: orange (front, small) -->
+  <g>
+    <circle cx="256" cy="330" r="26" fill="#F5A623"/>
+    <circle cx="224" cy="348" r="26" fill="#F5A623"/>
+    <circle cx="288" cy="348" r="26" fill="#F5A623"/>
+    <circle cx="238" cy="372" r="26" fill="#F5A623"/>
+    <circle cx="274" cy="372" r="26" fill="#F5A623"/>
+    <circle cx="256" cy="352" r="20" fill="#F4E04D"/>
+  </g>
+</svg>

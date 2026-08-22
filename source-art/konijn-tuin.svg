@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- sky -->
+  <rect x="0" y="0" width="512" height="360" fill="#BEE3F5"/>
+  <!-- grass -->
+  <rect x="0" y="360" width="512" height="152" fill="#7CB342"/>
+  <!-- sun -->
+  <circle cx="430" cy="90" r="46" fill="#F4E04D"/>
+  <!-- flowers -->
+  <g>
+    <circle cx="90" cy="400" r="16" fill="#FF8FAB"/>
+    <circle cx="70" cy="415" r="16" fill="#FF8FAB"/>
+    <circle cx="110" cy="415" r="16" fill="#FF8FAB"/>
+    <circle cx="90" cy="425" r="16" fill="#FF8FAB"/>
+    <circle cx="90" cy="415" r="10" fill="#F4E04D"/>
+    <rect x="86" y="425" width="8" height="40" fill="#4CAF50"/>
+  </g>
+  <g>
+    <circle cx="410" cy="410" r="14" fill="#9B59B6"/>
+    <circle cx="394" cy="424" r="14" fill="#9B59B6"/>
+    <circle cx="426" cy="424" r="14" fill="#9B59B6"/>
+    <circle cx="410" cy="434" r="14" fill="#9B59B6"/>
+    <circle cx="410" cy="422" r="9" fill="#F4E04D"/>
+    <rect x="406" y="434" width="8" height="36" fill="#4CAF50"/>
+  </g>
+  <!-- carrot -->
+  <polygon points="330,470 358,470 344,410" fill="#F5A623"/>
+  <path d="M336,412 L326,388 M344,410 L344,382 M352,412 L362,388" stroke="#4CAF50" stroke-width="8" stroke-linecap="round"/>
+  <!-- rabbit ears -->
+  <ellipse cx="175" cy="180" rx="30" ry="95" fill="#FFFFFF" transform="rotate(-12 175 180)"/>
+  <ellipse cx="245" cy="180" rx="30" ry="95" fill="#FFFFFF" transform="rotate(12 245 180)"/>
+  <ellipse cx="175" cy="185" rx="14" ry="65" fill="#FFC2D6" transform="rotate(-12 175 185)"/>
+  <ellipse cx="245" cy="185" rx="14" ry="65" fill="#FFC2D6" transform="rotate(12 245 185)"/>
+  <!-- rabbit body -->
+  <ellipse cx="210" cy="400" rx="95" ry="100" fill="#FFFFFF"/>
+  <!-- rabbit head -->
+  <circle cx="210" cy="280" r="85" fill="#FFFFFF"/>
+  <!-- eyes -->
+  <circle cx="174" cy="282" r="25" fill="#2B2B2B"/>
+  <circle cx="246" cy="282" r="25" fill="#2B2B2B"/>
+  <!-- nose -->
+  <polygon points="210,320 186,352 234,352" fill="#E8607D"/>
+  <!-- tail -->
+  <circle cx="300" cy="440" r="26" fill="#FFFFFF"/>
+</svg>

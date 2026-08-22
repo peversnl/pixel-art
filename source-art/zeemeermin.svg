@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- bubbles -->
+  <circle cx="90" cy="120" r="14" fill="#A8D8F0"/>
+  <circle cx="130" cy="80" r="9" fill="#A8D8F0"/>
+  <circle cx="420" cy="150" r="12" fill="#A8D8F0"/>
+  <circle cx="450" cy="100" r="8" fill="#A8D8F0"/>
+  <!-- tail fin -->
+  <path d="M256,430 C210,470 170,470 140,440 C185,455 210,435 210,410 C185,420 160,405 165,375
+           C200,400 230,395 240,370 Z" fill="#1B7A73"/>
+  <path d="M256,430 C302,470 342,470 372,440 C327,455 302,435 302,410 C327,420 352,405 347,375
+           C312,400 282,395 272,370 Z" fill="#1B7A73"/>
+  <!-- tail body -->
+  <path d="M215,240 C170,290 175,350 220,390 C245,410 280,410 305,388 C345,350 345,290 300,240
+           C285,225 265,215 258,215 C250,215 230,225 215,240 Z" fill="#40E0D0"/>
+  <path d="M235,260 C220,290 220,330 245,360" fill="none" stroke="#1B7A73" stroke-width="14" stroke-linecap="round"/>
+  <path d="M280,260 C295,290 295,330 270,360" fill="none" stroke="#1B7A73" stroke-width="14" stroke-linecap="round"/>
+  <!-- torso -->
+  <path d="M215,235 C205,190 215,150 258,150 C300,150 312,190 302,235 C290,255 225,255 215,235 Z"
+        fill="#F2C9A1"/>
+  <!-- shell top -->
+  <ellipse cx="230" cy="185" rx="28" ry="22" fill="#F5A623"/>
+  <ellipse cx="286" cy="185" rx="28" ry="22" fill="#F5A623"/>
+  <!-- arms -->
+  <path d="M212,200 C180,210 160,190 150,160" fill="none" stroke="#F2C9A1" stroke-width="26" stroke-linecap="round"/>
+  <path d="M304,200 C336,210 356,190 366,160" fill="none" stroke="#F2C9A1" stroke-width="26" stroke-linecap="round"/>
+  <!-- head -->
+  <circle cx="258" cy="108" r="64" fill="#F2C9A1"/>
+  <!-- hair -->
+  <path d="M198,105 C185,60 215,20 258,20 C301,20 331,60 318,105
+           C310,75 290,55 258,55 C226,55 206,75 198,105 Z" fill="#9B59B6"/>
+  <path d="M198,105 C180,140 190,175 210,195" fill="none" stroke="#9B59B6" stroke-width="22" stroke-linecap="round"/>
+  <path d="M318,105 C336,140 326,175 306,195" fill="none" stroke="#9B59B6" stroke-width="22" stroke-linecap="round"/>
+  <!-- eyes -->
+  <circle cx="232" cy="104" r="14" fill="#2B2B2B"/>
+  <circle cx="284" cy="104" r="14" fill="#2B2B2B"/>
+</svg>

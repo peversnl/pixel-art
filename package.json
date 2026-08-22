@@ -1,0 +1,19 @@
+{
+  "name": "pixelkleur",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Color-by-number pixel art game for kids. See CLAUDE.md.",
+  "type": "commonjs",
+  "scripts": {
+    "create-puzzle": "node tools/create-puzzle.js",
+    "validate-puzzles": "node tools/validate-puzzles.js",
+    "serve": "npx serve ."
+  },
+  "dependencies": {
+    "jpeg-js": "^0.4.4",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}

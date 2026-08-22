@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- tail -->
+  <path d="M380,330 C430,310 440,260 415,235 C398,220 375,235 382,258 C388,278 400,285 385,310 Z"
+        fill="#C68B59"/>
+  <!-- body -->
+  <ellipse cx="240" cy="360" rx="120" ry="110" fill="#C68B59"/>
+  <!-- chest -->
+  <ellipse cx="230" cy="400" rx="58" ry="70" fill="#F5E6D3"/>
+  <!-- head -->
+  <circle cx="210" cy="196" r="100" fill="#C68B59"/>
+  <!-- ears (floppy) -->
+  <path d="M130,150 C90,170 80,240 110,270 C135,292 160,270 150,235 C143,208 140,175 130,150 Z"
+        fill="#C68B59"/>
+  <path d="M290,150 C330,170 340,240 310,270 C285,292 260,270 270,235 C277,208 280,175 290,150 Z"
+        fill="#C68B59"/>
+  <!-- muzzle -->
+  <ellipse cx="210" cy="242" rx="58" ry="38" fill="#F5E6D3"/>
+  <!-- eyes -->
+  <ellipse cx="178" cy="160" rx="24" ry="28" fill="#2B2B2B"/>
+  <ellipse cx="242" cy="160" rx="24" ry="28" fill="#2B2B2B"/>
+  <!-- nose -->
+  <ellipse cx="210" cy="228" rx="24" ry="18" fill="#2B2B2B"/>
+  <!-- tongue -->
+  <path d="M195,262 C195,292 225,292 225,262 C225,282 195,282 195,262 Z" fill="#FF8FAB"/>
+  <!-- collar -->
+  <path d="M140,270 Q210,300 280,270 L280,290 Q210,320 140,290 Z" fill="#E63946"/>
+  <circle cx="210" cy="298" r="16" fill="#F4E04D"/>
+</svg>

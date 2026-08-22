@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- tail -->
+  <path d="M355,340 C410,325 435,365 415,400 C445,395 460,435 428,455 C400,470 372,450 378,420
+           C348,428 330,400 350,378 Z" fill="#FF8FAB"/>
+  <path d="M368,352 C400,345 415,372 402,395" fill="none" stroke="#9B59B6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M362,388 C392,388 402,414 382,432" fill="none" stroke="#4A90D9" stroke-width="14" stroke-linecap="round"/>
+  <!-- legs -->
+  <rect x="186" y="440" width="36" height="66" rx="12" fill="#EDEBF5"/>
+  <rect x="290" y="440" width="36" height="66" rx="12" fill="#EDEBF5"/>
+  <rect x="186" y="490" width="36" height="20" rx="6" fill="#8B5E34"/>
+  <rect x="290" y="490" width="36" height="20" rx="6" fill="#8B5E34"/>
+  <!-- body -->
+  <ellipse cx="256" cy="360" rx="118" ry="90" fill="#EDEBF5"/>
+  <ellipse cx="256" cy="385" rx="58" ry="50" fill="#F8F6FC"/>
+  <!-- head -->
+  <circle cx="256" cy="200" r="98" fill="#EDEBF5"/>
+  <!-- ears -->
+  <polygon points="188,148 168,78 220,138" fill="#EDEBF5"/>
+  <polygon points="324,148 344,78 292,138" fill="#EDEBF5"/>
+  <polygon points="196,138 184,98 208,130" fill="#FFC2D6"/>
+  <polygon points="316,138 328,98 304,130" fill="#FFC2D6"/>
+  <!-- horn -->
+  <polygon points="238,110 256,10 274,110" fill="#D4AF37"/>
+  <path d="M244,95 L268,85 M247,68 L271,58 M250,42 L268,35" stroke="#FDF3A0" stroke-width="7" stroke-linecap="round"/>
+  <!-- mane -->
+  <path d="M330,140 C365,165 370,210 345,240 C365,245 375,280 350,300 C368,310 365,340 340,345
+           C300,345 285,300 300,270 C270,260 270,225 295,205 C285,180 300,150 330,140 Z"
+        fill="#FF8FAB"/>
+  <path d="M318,165 C338,180 340,202 322,218" fill="none" stroke="#9B59B6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M322,230 C342,242 344,265 324,280" fill="none" stroke="#4A90D9" stroke-width="14" stroke-linecap="round"/>
+  <path d="M312,290 C330,298 332,318 314,328" fill="none" stroke="#4CAF50" stroke-width="14" stroke-linecap="round"/>
+  <!-- muzzle -->
+  <ellipse cx="256" cy="242" rx="46" ry="30" fill="#F8F6FC"/>
+  <!-- eyes -->
+  <circle cx="205" cy="192" r="26" fill="#2B2B2B"/>
+  <circle cx="307" cy="192" r="26" fill="#2B2B2B"/>
+  <!-- nostril -->
+  <ellipse cx="256" cy="252" rx="9" ry="6" fill="#2B2B2B"/>
+</svg>

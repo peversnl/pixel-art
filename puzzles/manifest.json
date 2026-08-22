@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "puzzles": [
+    "poes-wolbol.json",
+    "puppy.json",
+    "konijn-tuin.json",
+    "eenhoorn.json",
+    "zeemeermin.json",
+    "vlinder.json",
+    "regenboog-wolken.json",
+    "bloemenboeket.json",
+    "ijsje.json",
+    "verjaardagstaart.json"
+  ]
+}
