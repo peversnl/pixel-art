@@ -245,7 +245,15 @@ async function renderLibrary() {
   const validPuzzles = puzzles.filter(Boolean);
   puzzlesById = new Map(validPuzzles.map((p) => [p.id, p]));
 
-  for (const puzzle of validPuzzles) {
+  // Finished puzzles sink to the bottom so the library leads with what's
+  // still playable; manifest order is preserved within each group.
+  const sortedPuzzles = [...validPuzzles].sort((a, b) => {
+    const aDone = getPuzzleState(a).status === 'done' ? 1 : 0;
+    const bDone = getPuzzleState(b).status === 'done' ? 1 : 0;
+    return aDone - bDone;
+  });
+
+  for (const puzzle of sortedPuzzles) {
     libraryGrid.appendChild(createTile(puzzle));
   }
 }
