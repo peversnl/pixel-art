@@ -39,6 +39,7 @@ const ROOT = path.join(__dirname, '..');
 const PUZZLES_DIR = path.join(ROOT, 'puzzles');
 const THUMBS_DIR = path.join(ROOT, 'thumbs');
 const MANIFEST_PATH = path.join(PUZZLES_DIR, 'manifest.json');
+const SW_PATH = path.join(ROOT, 'sw.js');
 
 const USAGE = `Usage:
   node tools/create-puzzle.js <input.png|input.jpg> --id <slug> --title "<Title>" [options]
@@ -373,6 +374,39 @@ function readManifest() {
   }
 }
 
+// ---- service worker bookkeeping (CLAUDE.md §12) ------------------------
+// sw.js has no static list of puzzle files — precachePuzzles() reads
+// puzzles/manifest.json at install time and dynamically fetches every
+// listed puzzle + its thumbnail. So a new puzzle is precached automatically
+// as long as (a) it's in the manifest and (b) its thumbnail exists on disk.
+// What does NOT happen automatically is already-installed clients noticing
+// there's anything new to install — that only happens when CACHE_VERSION
+// changes, so this bumps it on every successful puzzle add.
+function bumpCacheVersion() {
+  const src = fs.readFileSync(SW_PATH, 'utf8');
+  const match = src.match(/const CACHE_VERSION = "v(\d+)";/);
+  if (!match) fail(`could not find CACHE_VERSION in ${SW_PATH} — bump it by hand`);
+  const next = parseInt(match[1], 10) + 1;
+  const updated = src.replace(/const CACHE_VERSION = "v\d+";/, `const CACHE_VERSION = "v${next}";`);
+  fs.writeFileSync(SW_PATH, updated);
+  console.log(`Bumped sw.js CACHE_VERSION: v${match[1]} -> v${next}.`);
+}
+
+function confirmPrecached(puzzleFilename, puzzle) {
+  const manifest = readManifest();
+  if (!manifest.puzzles.includes(puzzleFilename)) {
+    fail(`puzzles/manifest.json does not list ${puzzleFilename} — sw.js will not precache it`);
+  }
+  const thumbPath = path.join(ROOT, puzzle.thumbnail);
+  if (!fs.existsSync(thumbPath)) {
+    fail(`${puzzle.thumbnail} is missing — sw.js precachePuzzles() will skip this puzzle's thumbnail`);
+  }
+  console.log(
+    `Confirmed: sw.js will precache puzzles/${puzzleFilename} and ${puzzle.thumbnail} ` +
+      '(discovered dynamically via manifest.json, no static list to edit).'
+  );
+}
+
 // ---- preview (optional) ---------------------------------------------------
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -630,6 +664,9 @@ async function main() {
 
   console.log(`\nWrote puzzles/${puzzleFilename}, thumbs/${opts.id}.png, and updated manifest.json.`);
   console.log(`${puzzle.palette.length} colors, ${puzzle.width}x${puzzle.height} = ${puzzle.width * puzzle.height} cells.`);
+
+  confirmPrecached(puzzleFilename, puzzle);
+  bumpCacheVersion();
 }
 
 main().catch((err) => {
