@@ -110,6 +110,10 @@ puzzles" problem.
 - Numbers are drawn only on unfilled cells. Font size scales with zoom;
   below ~14 px effective cell size, hide the numbers entirely (they're
   illegible anyway) — the player is expected to zoom in to work.
+- Unfilled cells matching the currently-selected palette color are tinted a
+  light pastel version of that color (instead of plain white) so they're
+  easy to spot against the rest of the unfilled grid. Updates live as the
+  selection changes.
 - Hit-testing is pure arithmetic: `col = floor((x - panX) / (cell * zoom))`.
 
 ### Layout

@@ -68,7 +68,7 @@ track active pointer IDs.
 
 | Gesture | Behaviour |
 |---|---|
-| One finger down + move | Paint (drag-fill) |
+| One finger down + move | Paint (drag-fill) if the touch started on an unfilled cell matching the selected color; otherwise pan the grid (started on background, a non-matching cell, or a filled cell that wasn't long-pressed) — a one-finger drag must never be a dead zone once zoomed in. |
 | Two fingers | Pinch to zoom + pan the grid. Painting is cancelled the moment a second pointer appears; any cells filled since that gesture began are kept (do not roll back). |
 | Long-press one finger (600 ms, <10 px movement) | Erase that cell |
 | Double-tap | Reserved — do nothing (must not trigger browser zoom) |
@@ -110,6 +110,10 @@ puzzles" problem.
 - Numbers are drawn only on unfilled cells. Font size scales with zoom;
   below ~14 px effective cell size, hide the numbers entirely (they're
   illegible anyway) — the player is expected to zoom in to work.
+- Unfilled cells matching the currently-selected palette color are tinted a
+  light pastel version of that color (instead of plain white) so they're
+  easy to spot against the rest of the unfilled grid. Updates live as the
+  selection changes.
 - Hit-testing is pure arithmetic: `col = floor((x - panX) / (cell * zoom))`.
 
 ### Layout
