@@ -1,8 +1,8 @@
 # Color-by-Number Pixel Art Game — Build Spec v2
 
 ## 1. Overview
-A free, ad-free, browser-based "color by number" pixel art game for an
-almost-8-year-old girl. Numbered cells on a grid: pick a color, then tap or
+A free, ad-free, browser-based "color by number" pixel art game for a young
+child. Numbered cells on a grid: pick a color, then tap or
 drag across the cells carrying that number. When every cell is filled, the
 hidden picture is revealed. No accounts, no ads, no payments, no data
 collection. Works offline after the first load.
@@ -130,7 +130,7 @@ need zero code changes.
 | Tier | Grid | Cells | Colors | Notes |
 |---|---|---|---|---|
 | `easy` | 20×24 | 480 | 6–8 | short sessions; was the old `medium` |
-| `medium` (launch default) | 32×40 | 1280 | 10–14 | her current level |
+| `medium` (launch default) | 32×40 | 1280 | 10–14 | player's current level |
 | `hard` | 48×60 | 2880 | 16–24 | for later |
 
 All 10 launch puzzles ship at `medium`.
@@ -202,7 +202,7 @@ Practical drawing rules at 32×40:
   it isn't worth a palette slot.
 
 **Photo path (fallback only):** if a specific puzzle should be a real
-recognisable subject — her actual stuffed rabbit, the family cat — a photo
+recognisable subject — a real pet or stuffed animal — a photo
 goes through the full quantize/despeckle pipeline in §9. Expect it to look
 noticeably rougher than the authored puzzles.
 
@@ -362,7 +362,7 @@ Rules:
   the progress** and start clean. This prevents corrupt state after a
   puzzle is regenerated.
 - Save on a 500 ms debounce after fills, and on `visibilitychange`
-  (Android kills backgrounded tabs — without this she loses her work).
+  (Android kills backgrounded tabs — without this the player loses their work).
 - Wrap every read/write in try/catch; storage can be full or disabled.
 - A hidden parent reset: long-press the library title for 3 s → "alle
   voortgang wissen?" confirm.
@@ -479,11 +479,11 @@ build step needed.
 
 ## 18. Remaining Open Questions
 
-1. **Hint timing** — is a 20 s auto-hint helpful or patronising for her?
+1. **Hint timing** — is a 20 s auto-hint helpful or patronising for a young player?
 2. **Palette size at launch** — 10 or 14 colors? 14 is prettier, 10 is much
    less scrolling in the palette bar on a tablet.
 
 ~~Source art~~ — resolved: original flat SVG illustrations drawn for this
 project (§7), avoiding both the licensing question and the photo-noise
-problem. Revisit only if a specific real-life subject (her actual stuffed
-animal, the family cat) is wanted for one puzzle.
+problem. Revisit only if a specific real-life subject (a real pet or stuffed
+animal) is wanted for one puzzle.
