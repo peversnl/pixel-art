@@ -409,6 +409,10 @@ function mountPuzzleScreen(puzzle) {
       STRINGS.restartConfirmCancel
     );
     if (confirmed) {
+      // Unmount first: it flushes the (still-full) in-progress save. Only
+      // after that flush lands do we clear storage, otherwise the flush
+      // would silently re-write the old progress on top of the clear.
+      unmountPuzzleScreen();
       storage.clearProgress(puzzle.id);
       mountPuzzleScreen(puzzle);
     }
