@@ -22,6 +22,29 @@ const GRID_LINE_ALPHA = 0.15;
 const NUMBER_COLOR = '#33312c';
 const PREVIEW_COLOR = 'rgba(74, 144, 217, 0.35)';
 
+// How strongly the selected color's own hue tints its still-unfilled cells
+// (§3.1 asks for an easier-to-spot cue for "what am I painting right now").
+// Low weight keeps the tint pastel so the black number stays legible on top.
+const SELECTED_HINT_MIX = 0.28;
+
+function hexToRgb(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+}
+
+// Blends a palette color toward white, cached per hex so it's computed once.
+const tintCache = new Map();
+function tintedCellColor(hex) {
+  let tinted = tintCache.get(hex);
+  if (!tinted) {
+    const { r, g, b } = hexToRgb(hex);
+    const mix = (c) => Math.round(c * SELECTED_HINT_MIX + 255 * (1 - SELECTED_HINT_MIX));
+    tinted = `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`;
+    tintCache.set(hex, tinted);
+  }
+  return tinted;
+}
+
 export function createCanvasEngine(container, puzzle) {
   const { width, height, grid, palette } = puzzle;
   const paletteByNumber = new Map(palette.map((p) => [p.n, p.hex]));
@@ -47,6 +70,7 @@ export function createCanvasEngine(container, puzzle) {
     filled: new Set(),
     preview: new Set(),
     gridAlpha: 1, // faded to 0 for the completion reveal (§10C)
+    selectedColor: null,
   };
 
   let baseDirty = true;
@@ -171,7 +195,13 @@ export function createCanvasEngine(container, puzzle) {
         const index = row * width + col;
         const isFilled = state.filled.has(index);
 
-        ctx.fillStyle = isFilled ? (paletteByNumber.get(n) || '#cccccc') : EMPTY_CELL_COLOR;
+        if (isFilled) {
+          ctx.fillStyle = paletteByNumber.get(n) || '#cccccc';
+        } else if (n === state.selectedColor) {
+          ctx.fillStyle = tintedCellColor(paletteByNumber.get(n) || '#cccccc');
+        } else {
+          ctx.fillStyle = EMPTY_CELL_COLOR;
+        }
         ctx.fillRect(x, y, effectiveCell, effectiveCell);
 
         if (state.gridAlpha > 0) {
@@ -248,6 +278,14 @@ export function createCanvasEngine(container, puzzle) {
     setPreview(indices) {
       state.preview = new Set(indices);
       activeDirty = true;
+      scheduleDraw();
+    },
+
+    // Tints still-unfilled cells matching the active palette color so they're
+    // easier to pick out from the rest of the unfilled grid (§3.1).
+    setSelectedColor(n) {
+      state.selectedColor = n;
+      baseDirty = true;
       scheduleDraw();
     },
 

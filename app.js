@@ -548,6 +548,7 @@ function mountPuzzleScreen(puzzle) {
   const initialColor = firstUnfinishedColor() ?? puzzle.palette[0].n;
   updateColorIndicator(colorIndicator, puzzle, initialColor);
   updateProgressIndicator();
+  currentEngine.setSelectedColor(initialColor);
 
   function selectSwatch(n) {
     for (const [swatchN, btn] of swatchButtons) {
@@ -566,6 +567,7 @@ function mountPuzzleScreen(puzzle) {
     onColorChange: (n) => {
       updateColorIndicator(colorIndicator, puzzle, n);
       selectSwatch(n);
+      currentEngine.setSelectedColor(n);
     },
     onCellFilled: (index, n) => {
       filledByColor.set(n, (filledByColor.get(n) || 0) + 1);

@@ -17,8 +17,12 @@
 // Tap vs. drag is not decided at release. The cell under the very first
 // touch is resolved immediately on pointerdown (fill it if it matches the
 // selected color, otherwise ignore it) so a plain tap and the first instant
-// of a drag behave identically. Non-matching cells are always skipped —
-// selecting a color is the only way to change what gets painted.
+// of a drag behave identically. Non-matching cells are always skipped for
+// filling — selecting a color is the only way to change what gets painted.
+// If the very first touch isn't on a fillable matching cell, though, a drag
+// from there pans the view instead of doing nothing (see paintKind below) —
+// otherwise a one-finger drag over background or the wrong color would be a
+// dead zone once zoomed in, which reads as "I can't move the picture."
 
 const LONG_PRESS_MS = 600;
 const MOVE_THRESHOLD = 10; // px — cancels long-press, per §4
@@ -44,6 +48,20 @@ export function attachPuzzleInput({
   let paintStart = { x: 0, y: 0 };
   let paintLast = { x: 0, y: 0 };
   let longPressTimer = null;
+
+  // What a one-finger drag does for the current gesture, decided once at
+  // pointerdown (and possibly resolved on first move — see paintKind ===
+  // null below) so a single drag never flips between filling and panning
+  // partway through:
+  //   'fill' — started on an unfilled cell matching the selected color;
+  //            drag-fills matching cells crossed, same as before.
+  //   'pan'  — started on background, a non-matching cell, or the pointer
+  //            moved before an armed long-press could resolve; there is
+  //            nothing to paint here, so the drag pans the view instead of
+  //            being a dead zone (§4).
+  //   null   — started on an already-filled cell; still waiting to see if
+  //            this is a long-press (erase) or turns into a drag (pan).
+  let paintKind = null;
 
   let pinch = null; // {initialDistance, initialZoom, contentX, contentY}
 
@@ -87,15 +105,20 @@ export function attachPuzzleInput({
   }
 
   // Single hit-test + fill decision, used only for the cell under the very
-  // first touch of a gesture (§3.2, §3.5).
+  // first touch of a gesture (§3.2, §3.5). Also decides paintKind for the
+  // rest of the gesture (see the comment on its declaration above).
   function handleInitialTouch(x, y) {
     const hit = engine.hitTest(x, y);
     const value = cellValueAt(hit);
-    if (!hit || value === 0) return;
+    if (!hit || value === 0) {
+      paintKind = 'pan';
+      return;
+    }
 
     if (filled.has(hit.index)) {
       // Already filled: tapping does nothing (§3.5). The only thing that
       // can happen next is a long-press erase, so arm that timer.
+      paintKind = null;
       longPressTimer = setTimeout(() => {
         longPressTimer = null;
         if (mode === 'paint' && paintPointerId !== null) {
@@ -105,7 +128,12 @@ export function attachPuzzleInput({
       return;
     }
 
-    if (value === selectedColor) fillAt(hit.index);
+    if (value === selectedColor) {
+      paintKind = 'fill';
+      fillAt(hit.index);
+    } else {
+      paintKind = 'pan';
+    }
   }
 
   // Fills every matching, unfilled cell crossed between two points, so a
@@ -168,6 +196,7 @@ export function attachPuzzleInput({
     clearLongPressTimer();
     engine.setPreview([]);
     paintPointerId = null;
+    paintKind = null;
   }
 
   function onPointerDown(e) {
@@ -202,11 +231,24 @@ export function attachPuzzleInput({
 
     if (mode === 'paint' && e.pointerId === paintPointerId) {
       const moved = Math.hypot(e.clientX - paintStart.x, e.clientY - paintStart.y);
-      if (moved >= MOVE_THRESHOLD) clearLongPressTimer();
-      paintSegment(paintLast.x, paintLast.y, e.clientX, e.clientY);
+      if (moved >= MOVE_THRESHOLD) {
+        clearLongPressTimer();
+        // Started on an already-filled cell (paintKind still undecided):
+        // there's nothing to paint from there, so a real drag pans (§4).
+        if (paintKind === null) paintKind = 'pan';
+      }
+
+      if (paintKind === 'fill') {
+        paintSegment(paintLast.x, paintLast.y, e.clientX, e.clientY);
+        const hit = engine.hitTest(e.clientX, e.clientY);
+        engine.setPreview(hit ? [hit.index] : []);
+      } else if (paintKind === 'pan') {
+        const viewport = engine.getViewport();
+        const dx = e.clientX - paintLast.x;
+        const dy = e.clientY - paintLast.y;
+        engine.setViewport(viewport.zoom, viewport.panX + dx, viewport.panY + dy);
+      }
       paintLast = { x: e.clientX, y: e.clientY };
-      const hit = engine.hitTest(e.clientX, e.clientY);
-      engine.setPreview(hit ? [hit.index] : []);
     }
     // mode === 'suppressed': a leftover finger from a finished pinch.
     // Ignored until every pointer lifts and a fresh gesture begins.
