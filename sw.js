@@ -1,7 +1,7 @@
 // PixelKleur service worker (CLAUDE.md §12).
 // Bump this on every deploy — it's the only thing that forces clients to
 // pick up new precached files instead of serving stale ones forever.
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 
 const SHELL_CACHE = `pixelkleur-shell-${CACHE_VERSION}`;
 const PUZZLE_CACHE = `pixelkleur-puzzles-${CACHE_VERSION}`;

@@ -11,7 +11,7 @@ html, body {
   box-sizing: border-box;
 }
 
-.grid, .palette {
+.grid, .palette, #library-title {
   user-select: none;
   -webkit-touch-callout: none;
 }
@@ -206,6 +206,18 @@ button {
   font-weight: 600;
   flex: 0 0 auto;
   margin-left: auto;
+}
+
+.restart-button {
+  min-height: 48px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-border);
+  color: var(--color-danger);
+  font-size: 15px;
+  font-weight: 600;
+  flex: 0 0 auto;
 }
 
 .mute-button {

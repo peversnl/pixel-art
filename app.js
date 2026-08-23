@@ -21,6 +21,10 @@ const STRINGS = {
   resetConfirmCancel: 'Annuleren',
   backToLibrary: 'Terug naar de puzzels',
   fitButton: 'Passend maken',
+  restartButton: 'Opnieuw beginnen',
+  restartConfirmMessage: 'Deze puzzel opnieuw beginnen? Alle kleuren worden gewist.',
+  restartConfirmOk: 'Opnieuw beginnen',
+  restartConfirmCancel: 'Annuleren',
   completionTitle: 'Goed gedaan!',
   playAgain: 'Nog een keer',
   muteOn: 'Geluid dempen',
@@ -394,6 +398,21 @@ function mountPuzzleScreen(puzzle) {
   fitButton.type = 'button';
   fitButton.className = 'fit-button';
   fitButton.textContent = STRINGS.fitButton;
+  const restartButton = document.createElement('button');
+  restartButton.type = 'button';
+  restartButton.className = 'restart-button';
+  restartButton.textContent = STRINGS.restartButton;
+  restartButton.addEventListener('click', async () => {
+    const confirmed = await showConfirm(
+      STRINGS.restartConfirmMessage,
+      STRINGS.restartConfirmOk,
+      STRINGS.restartConfirmCancel
+    );
+    if (confirmed) {
+      storage.clearProgress(puzzle.id);
+      mountPuzzleScreen(puzzle);
+    }
+  });
   const muteButton = document.createElement('button');
   muteButton.type = 'button';
   muteButton.className = 'mute-button';
@@ -412,6 +431,7 @@ function mountPuzzleScreen(puzzle) {
   header.appendChild(progressIndicator);
   header.appendChild(colorIndicator);
   header.appendChild(fitButton);
+  header.appendChild(restartButton);
   header.appendChild(muteButton);
 
   const canvasContainer = document.createElement('div');
