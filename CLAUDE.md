@@ -39,10 +39,9 @@ but must not break.
    over. Non-matching cells under the finger are simply skipped — no
    penalty, no error state.
 4. Tapping a cell with a *different* number than the currently selected
-   color **switches the selection to that cell's color** and fills it.
-   (This replaces the "do nothing + shake" rule from v1: silently doing
-   nothing reads as broken to a child. Switching is forgiving and teaches
-   the mechanic by itself.)
+   color does nothing — it is simply skipped, same as a non-matching cell
+   passed over during a drag (§3.3). The player must select the matching
+   color from the palette first.
 5. Tapping an already-filled cell does nothing.
 6. When every cell for a number is filled, its palette swatch shows a
    checkmark, greys out, and selection auto-advances to the next unfinished
@@ -435,7 +434,8 @@ Chrome:
 - [ ] Pinch-zoom and pan work; painting never fires during a two-finger
       gesture; the "fit" button resets the view
 - [ ] Long-press erases a single filled cell
-- [ ] Tapping a cell with a different number switches the selected color
+- [ ] Tapping a cell with a different number does nothing (color must be
+      selected from the palette first)
 - [ ] Completing a color checks off its swatch and auto-advances
 - [ ] Completion screen fires: gridlines fade, confetti, sound, both buttons work
 - [ ] Progress survives a tab close and reopen, and a device restart

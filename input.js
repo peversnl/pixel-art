@@ -15,10 +15,10 @@
 //   -> 0 pointers             : reset to idle, ready for a fresh gesture.
 //
 // Tap vs. drag is not decided at release. The cell under the very first
-// touch is resolved immediately on pointerdown (fill it, or switch the
-// selected color and fill it — §3.4) so a plain tap and the first instant
-// of a drag behave identically. Movement afterwards only ever *skips*
-// non-matching cells (§3.3); it never switches color again.
+// touch is resolved immediately on pointerdown (fill it if it matches the
+// selected color, otherwise ignore it) so a plain tap and the first instant
+// of a drag behave identically. Non-matching cells are always skipped —
+// selecting a color is the only way to change what gets painted.
 
 const LONG_PRESS_MS = 600;
 const MOVE_THRESHOLD = 10; // px — cancels long-press, per §4
@@ -86,8 +86,8 @@ export function attachPuzzleInput({
     }
   }
 
-  // Single hit-test + fill-or-switch decision, used only for the cell under
-  // the very first touch of a gesture (§3.2, §3.4, §3.5).
+  // Single hit-test + fill decision, used only for the cell under the very
+  // first touch of a gesture (§3.2, §3.5).
   function handleInitialTouch(x, y) {
     const hit = engine.hitTest(x, y);
     const value = cellValueAt(hit);
@@ -105,8 +105,7 @@ export function attachPuzzleInput({
       return;
     }
 
-    if (value !== selectedColor) setSelectedColor(value);
-    fillAt(hit.index);
+    if (value === selectedColor) fillAt(hit.index);
   }
 
   // Fills every matching, unfilled cell crossed between two points, so a
