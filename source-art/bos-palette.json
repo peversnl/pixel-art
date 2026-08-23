@@ -1,0 +1,23 @@
+[
+  { "n": 1,  "hex": "#6FB8E0", "name": "hemelsblauw" },
+  { "n": 2,  "hex": "#B8E2F0", "name": "lichtblauw" },
+  { "n": 3,  "hex": "#F5E9B8", "name": "zonlicht" },
+  { "n": 4,  "hex": "#FFD65C", "name": "zongeel" },
+  { "n": 5,  "hex": "#F2A23C", "name": "zonoranje" },
+  { "n": 6,  "hex": "#1F4D2E", "name": "dennengroen" },
+  { "n": 7,  "hex": "#3E7A3F", "name": "bosgroen" },
+  { "n": 8,  "hex": "#6FAE4C", "name": "loofgroen" },
+  { "n": 9,  "hex": "#C8E85C", "name": "loofgroen licht" },
+  { "n": 10, "hex": "#7A5230", "name": "boomstam" },
+  { "n": 11, "hex": "#4A2F18", "name": "boomstam donker" },
+  { "n": 12, "hex": "#2D5C24", "name": "gras donker" },
+  { "n": 13, "hex": "#7FC24F", "name": "gras licht" },
+  { "n": 14, "hex": "#C9A063", "name": "pad bruin" },
+  { "n": 15, "hex": "#93672F", "name": "pad donker" },
+  { "n": 16, "hex": "#E2503A", "name": "paddenstoel rood" },
+  { "n": 17, "hex": "#E8E4F2", "name": "paddenstoel wit" },
+  { "n": 18, "hex": "#E8703A", "name": "vos oranje" },
+  { "n": 19, "hex": "#FFF6E8", "name": "vos wit" },
+  { "n": 20, "hex": "#2B1810", "name": "vos donker" },
+  { "n": 21, "hex": "#F0A8C8", "name": "bloem roze" }
+]

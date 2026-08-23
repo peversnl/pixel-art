@@ -1,0 +1,20 @@
+[
+  { "n": 1,  "hex": "#171A3D", "name": "nachtblauw" },
+  { "n": 2,  "hex": "#272C63", "name": "indigo" },
+  { "n": 3,  "hex": "#3E3282", "name": "paars" },
+  { "n": 4,  "hex": "#63397F", "name": "dieppaars" },
+  { "n": 5,  "hex": "#93497C", "name": "roze paars" },
+  { "n": 6,  "hex": "#FFEFC4", "name": "maanwit" },
+  { "n": 7,  "hex": "#E9CE93", "name": "maanschaduw" },
+  { "n": 8,  "hex": "#C9AE85", "name": "kratergrijs" },
+  { "n": 9,  "hex": "#FFD75E", "name": "stergeel" },
+  { "n": 10, "hex": "#FFFFFF", "name": "sterwit" },
+  { "n": 11, "hex": "#7FE0E8", "name": "hemelsblauw" },
+  { "n": 12, "hex": "#9088C4", "name": "wolkpaars" },
+  { "n": 13, "hex": "#C9C3E6", "name": "wolklicht" },
+  { "n": 14, "hex": "#E8935A", "name": "oranje" },
+  { "n": 15, "hex": "#B85F35", "name": "roodbruin" },
+  { "n": 16, "hex": "#0C1610", "name": "zwartgroen" },
+  { "n": 17, "hex": "#1C3324", "name": "donkergroen" },
+  { "n": 18, "hex": "#F2A6C4", "name": "sterrenstof" }
+]
