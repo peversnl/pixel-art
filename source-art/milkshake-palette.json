@@ -1,0 +1,52 @@
+[
+  {
+    "n": 1,
+    "hex": "#1A1A1A",
+    "name": "zwart"
+  },
+  {
+    "n": 2,
+    "hex": "#FFFFFF",
+    "name": "wit"
+  },
+  {
+    "n": 3,
+    "hex": "#F2A0C0",
+    "name": "roze"
+  },
+  {
+    "n": 4,
+    "hex": "#E06AA0",
+    "name": "donkerroze"
+  },
+  {
+    "n": 5,
+    "hex": "#E8534A",
+    "name": "rood"
+  },
+  {
+    "n": 6,
+    "hex": "#B23A34",
+    "name": "donkerrood"
+  },
+  {
+    "n": 7,
+    "hex": "#BFE3EC",
+    "name": "lichtblauw"
+  },
+  {
+    "n": 8,
+    "hex": "#6FA8C0",
+    "name": "donkerblauw"
+  },
+  {
+    "n": 9,
+    "hex": "#7A4A28",
+    "name": "bruin"
+  },
+  {
+    "n": 10,
+    "hex": "#7CC576",
+    "name": "groen"
+  }
+]
